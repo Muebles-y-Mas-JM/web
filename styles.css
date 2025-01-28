@@ -1,0 +1,233 @@
+html, body {
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+body {
+    font-family: 'Teko', Arial, sans-serif; /* Aplicamos la fuente Teko a todo el contenido */
+    margin: 0;
+    padding: 0;
+    background-color: #e9e9e9;
+}
+
+header {
+    background-color: #333;
+    padding: 1px 0; /* Reduce el padding */
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #4e280c;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Asegura que la barra de navegación ocupe todo el ancho */
+}
+
+nav a {
+    color: #fffbfb;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #f0f0f0;
+}
+
+.logo {
+    max-width: 80px;
+    height: auto; /* Ajustar la altura automática para mantener la proporción */
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 25px; /* Bordes redondeados */
+    outline: none;
+    transition: all 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #6d564a;
+}
+
+.container {
+    padding: 20px;
+}
+
+.section {
+    margin: 20px 0;
+}
+
+.section h2 {
+    background-color: #4e280c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.product-list, .featured-products {
+    display: flex;
+    justify-content: space-around; /* Ajusta la justificación para mantener los productos juntos */
+    gap: 20px; /* Añade espacio entre los productos */
+}
+
+.product, .featured-product {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px; /* Aumenta el padding del contenedor */
+    width: calc(33.33% - 20px); /* Ajusta el ancho del contenedor del producto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Evita que el contenido se salga del contenedor */
+}
+
+.product img, .featured-product img {
+    max-width: 100%; /* Ajusta el tamaño máximo de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 150px; /* Ajusta la altura máxima de la imagen */
+    margin-bottom: 10px; /* Añade espacio debajo de la imagen */
+}
+
+.product p, .featured-product p {
+    margin: 5px 0; /* Espacio entre párrafos */
+}
+
+.product-price {
+    color: red; /* Color del precio final */
+    font-weight: bold;
+}
+
+.product-normal-price {
+    text-decoration: line-through; /* Texto tachado para el precio normal */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd; /* Línea decorativa */
+    padding-bottom: 5px;
+    text-align: center; /* Alineación centrada */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #dddddd;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; /* Opcional: añade color de fondo */
+    padding: 10px 0; /* Añade un poco de espacio alrededor del logo */
+}
+
+.footer-social a {
+    margin: 0 10px;
+}
+
+.footer-social img {
+    width: 30px;
+}
+
+.featured-product img {
+    max-width: 100%; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    max-height: 150px; /* Ajusta la altura máxima de la imagen */
+}
+
+.logo img {
+    max-width: 80px; /* Ajusta el tamaño máximo según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.hero-section {
+    background-image: url("mu.png");
+    background-size: cover;
+    height: 400px; /* Ajusta la altura según necesites */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+}
+
+.hero-text-box {
+    background-color: rgba(0, 0, 0, 0.5); /* Recuadro negro borroso */
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.hero-text-box h1 {
+    color: #ffffff; /* Color del texto */
+    font-family: 'Teko', sans-serif;
+    font-size: 36px; /* Tamaño de la letra */
+}
+
+.product img {
+    max-width: 100%; /* Ajusta el tamaño máximo de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 150px; /* Ajusta la altura máxima de la imagen */
+    margin-bottom: 10px; /* Añade espacio debajo de la imagen */
+}
+
+.product {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px; /* Aumenta el padding del contenedor */
+    width: calc(33.33% - 20px); /* Ajusta el ancho del contenedor del producto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Evita que el contenido se salga del contenedor */
+}
