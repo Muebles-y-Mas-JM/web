@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - Muebles y Más JM</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de que el archivo CSS está vinculado -->
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap" rel="stylesheet">
 <style>
 html, body {
-    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    overflow-x: hidden;
 }
 
 body {
-    font-family: 'Teko', Arial, sans-serif; /* Aplicamos la fuente Teko a todo el contenido */
+    font-family: 'Teko', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #e9e9e9;
@@ -22,7 +22,7 @@ body {
 
 header {
     background-color: #333;
-    padding: 1px 0; /* Reduce el padding */
+    padding: 1px 0;
 }
 
 nav {
@@ -32,7 +32,7 @@ nav {
     background-color: #4e280c;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Asegura que la barra de navegación ocupe todo el ancho */
+    width: 100%;
 }
 
 nav a {
@@ -48,7 +48,7 @@ nav a:hover {
 
 .logo {
     max-width: 80px;
-    height: auto; /* Ajustar la altura automática para mantener la proporción */
+    height: auto;
 }
 
 .search-bar {
@@ -61,7 +61,7 @@ nav a:hover {
     width: 300px;
     padding: 10px;
     border: 2px solid #ccc;
-    border-radius: 25px; /* Bordes redondeados */
+    border-radius: 25px;
     outline: none;
     transition: all 0.3s;
 }
@@ -87,33 +87,33 @@ nav a:hover {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Crea una cuadrícula de 3 columnas */
-    gap: 20px; /* Establece una separación de 10px entre los productos */
-    justify-items: center; /* Centra los elementos en la cuadrícula */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
 }
 
-.product, .featured-product {
+.product {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
-    width: calc(100% - 10px); /* Ajusta el ancho del contenedor del producto */
-    max-width: 1200px; /* Ajusta el ancho máximo del contenedor del producto */
+    width: 120%; /* Asegura que todos los productos tengan el mismo ancho */
+    max-width: 420px; /* Ajusta el ancho máximo del contenedor del producto */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    overflow: hidden; /* Evita que el contenido se salga del contenedor */
+    overflow: hidden;
 }
 
-.product img, .featured-product img {
+.product img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
 
-.product p, .featured-product p {
+.product p {
     margin: 5px 0;
 }
 
@@ -188,16 +188,6 @@ footer {
     width: 30px;
 }
 
-.featured-product img {
-    max-width: 100%;
-    height: auto;
-}
-
-.logo img {
-    max-width: 80px;
-    height: auto;
-}
-
 .hero-section {
     background-image: url("mu.png");
     background-size: cover;
@@ -221,29 +211,6 @@ footer {
     font-family: 'Teko', sans-serif;
     font-size: 36px;
 }
-
-.product img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.product {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px; /* Aumenta el padding del contenedor */
-    width: calc(95% - 10px); /* Ajusta el ancho del contenedor del producto */
-    max-width: 1200px; /* Ajusta el ancho máximo del contenedor del producto */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-}
-
-
 </style>
 </head>
 <body>
@@ -264,66 +231,88 @@ footer {
         <div class="section">
             <h2>Nuestros Productos</h2>
             <div class="product-grid">
-                <!-- Aquí puedes añadir los productos que desees mostrar en una cuadrícula de 3x3 -->
                 <div class="product">
-                    <img src="produ2.png" alt="Producto A">
+                    <a href="vista.html">
+                        <img src="produ2.png" alt="Producto A">
+                    </a>
                     <h3>Producto A</h3>
                     <p class="product-normal-price">Normal: $3,200.00</p>
                     <p>Precio Especial: $1,999.00</p>
                     <p class="product-price">Precio al Pagar: $1,699.15</p>
                 </div>
                 <div class="product">
-                    <img src="produ2.png" alt="Producto B">
+                    <img src="produmas.png" alt="Producto B">
                     <h3>Producto B</h3>
                     <p class="product-normal-price">Normal: $2,800.00</p>
                     <p>Precio Especial: $1,499.00</p>
                     <p class="product-price">Precio al Pagar: $1,274.15</p>
                 </div>
                 <div class="product">
-                    <img src="produ2.png" alt="Producto C">
+                    <img src="1.png" alt="Producto C">
                     <h3>Producto C</h3>
                     <p class="product-normal-price">Normal: $4,500.00</p>
                     <p>Precio Especial: $2,799.00</p>
                     <p class="product-price">Precio al Pagar: $2,379.15</p>
                 </div>
                 <div class="product">
-                    <img src="produ2.png" alt="Producto D">
+                    <img src="1.4.png" alt="Producto D">
                     <h3>Producto D</h3>
                     <p class="product-normal-price">Normal: $3,800.00</p>
                     <p>Precio Especial: $2,499.00</p>
                     <p class="product-price">Precio al Pagar: $2,149.15</p>
                 </div>
                 <div class="product">
-                    <img src="produ2.png" alt="Producto E">
+                    <img src="1.1.png" alt="Producto E">
                     <h3>Producto E</h3>
                     <p class="product-normal-price">Normal: $2,300.00</p>
                     <p>Precio Especial: $1,799.00</p>
                     <p class="product-price">Precio al Pagar: $1,529.15</p>
                 </div>
                 <div class="product">
-                    <img src="produ2.png" alt="Producto F">
+                    <img src="1.2.png" alt="Producto F">
                     <h3>Producto F</h3>
                     <p class="product-normal-price">Normal: $4,900.00</p>
                     <p>Precio Especial: $3,399.00</p>
                     <p class="product-price">Precio al Pagar: $2,889.15</p>
                 </div>
                 <div class="product">
-                    <img src="produ2.png" alt="Producto G">
+                    <img src="3.png" alt="Producto G">
                     <h3>Producto G</h3>
                     <p class="product-normal-price">Normal: $3,600.00</p>
                     <p>Precio Especial: $2,299.00</p>
                     <p class="product-price">Precio al Pagar: $1,954.15</p>
                 </div>
                 <div class="product">
-                    <img src="produ2.png" alt="Producto H">
+                    <img src="1.3.png" alt="Producto H">
                     <h3>Producto H</h3>
                     <p class="product-normal-price">Normal: $2,700.00</p>
                     <p>Precio Especial: $1,999.00</p>
                     <p class="product-price">Precio al Pagar: $1,699.15</p>
                 </div>
                 <div class="product">
-                    <img src="produ2.png" alt="Producto I">
+                    <img src="5.jpg" alt="Producto I">
                     <h3>Producto I</h3>
+                    <p class="product-normal-price">Normal: $4,100.00</p>
+                    <p>Precio Especial: $2,899.00</p>
+                    <p class="product-price">Precio al Pagar: $2,464.15</p>
+                </div>
+                <div class="product">
+                    <img src="4.png" alt="Producto J">
+                    <h3>Producto J</h3>
+                    <p class="product-normal-price">Normal: $4,100.00</p>
+                    <p>Precio Especial: $2,899.00</p>
+                    <p class="product-price">Precio al Pagar: $2,464.15</p>
+                </div>
+                <div class="product">
+                    <img src="zagu.png" alt="Producto K">
+                    <h3>Producto K</h3>
+                    <p class="product-normal-price">Normal: $4,100.00</p>
+                    <p>Precio Especial: $2,899.00</p>
+                    <p class="product-price">Precio al Pagar: $2,464.15</p>
+                </div>
+                <div class="product">
+                    <img src="2.png" alt="Producto L">
+                    <h3>Producto L</h3>
                     <p class="product-normal-price">Normal: $4,100.00</p>
                     <p>Precio Especial: $2,899.00</p>
                     <p class="product-price">Precio al Pagar: $2,464.15</p>
