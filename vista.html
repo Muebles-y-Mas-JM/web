@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         nav a {
     color: #fffbfb; /* Color normal de los enlaces */
@@ -341,13 +342,67 @@ nav a:hover {
             <input type="text" placeholder="Busca aquí por toda la tienda...">
         </div>
     </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('producto');
+    
+            const productsData = {
+                A: {
+                    name: "Producto A",
+                    mainImage: "mueb.png",
+                    thumbnails: ["mueb.png", "produmas.png", "1.png"],
+                    description: "Cómoda Cajonera Mueblana, 8 Cajones, Madera, 80x23.5x101cm Color Marrón",
+                    price: "$1,574.37",
+                    oldPrice: "$2,499.00"
+                },
+                B: {
+                    name: "Producto B",
+                    mainImage: "produmas.png",
+                    thumbnails: ["op.png", "op1.png", "op2.png"],
+                    description: "Mesa de Centro Moderna, 4 Cajones, Madera, 90x50x45cm Color Negro",
+                    price: "$2,800.00",
+                    oldPrice: "$4,000.00"
+                }
+                // Añade más productos aquí
+            };
+    
+            if (productsData[product]) {
+                const productData = productsData[product];
+    
+                document.querySelector('.product-info .header h1').textContent = productData.description;
+                document.querySelector('.product-images img').src = productData.mainImage;
+    
+                const thumbnailsContainer = document.querySelector('.thumbnails');
+                thumbnailsContainer.innerHTML = '';
+                productData.thumbnails.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    thumbnailsContainer.appendChild(img);
+                });
+    
+                document.querySelector('.current-price').textContent = productData.price;
+                document.querySelector('.old-price').textContent = productData.oldPrice;
+            }
+    
+            const thumbnails = document.querySelectorAll('.thumbnails img');
+            const mainImage = document.querySelector('.product-images img');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    mainImage.src = thumbnail.src;
+                    thumbnails.forEach(img => img.classList.remove('active'));
+                    thumbnail.classList.add('active');
+                });
+            });
+        });
+    </script>
     <div class="container">
         <div class="product-details">
             <div class="product-images">
-                <img src="produ2.png" alt="Imagen principal">
+                <img src="mueb.png" alt="Imagen principal">
                 <div class="thumbnails">
                     <img src="produmas.png" alt="Vista lateral" class="active">
-                    <img src="produ2.png" alt="Vista frontal">
+                    <img src="mueb.png" alt="Vista frontal">
                     <img src="1.png" alt="Detalle del producto">
                 </div>
             </div>
@@ -427,5 +482,6 @@ nav a:hover {
             <a href="https://wa.me/5529209373"><img src="wasa.png" alt="WhatsApp"></a>
         </div>
     </footer>
+
 </body>
 </html>
