@@ -16,129 +16,301 @@
             background-color: #e9e9e9;
         }
         .container {
+            display: flex;
+            justify-content: center;
             padding: 20px;
         }
         .product-details {
             display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
+            max-width: 1400px;
             background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Añade espacio entre el cuadro blanco y el pie de página */
         }
-        .product-image {
-            max-width: 50%; /* Ajustado para ocupar más espacio */
-            padding: 20px;
-        }
-        .product-image img {
-            width: 100%;
-            height: auto;
-            max-width: 600px; /* Ajustado para ser 200px más grande */
-            max-height: 600px; /* Ajustado para ser 200px más grande */
-            object-fit: cover; /* Mantiene la relación de aspecto */
-        }
-        .product-info {
+        .product-images {
             flex: 1;
-            margin-left: 70px; /* Añadido margen de 70px a la derecha */
+            border-right: 1px solid #e0e0e0;
+            padding: 20px;
+            width: 650px; /* Fija el ancho del contenedor */
+            height: 500px; /* Fija la altura del contenedor */
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        .product-info h2 {
-            color: #4e280c;
-            margin-top: 0;
+        .product-images img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            max-height: 500px;
+            border-radius: 4px;
+            object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin recortarse */
         }
-        .product-price {
-            color: red;
-            font-weight: bold;
-            font-size: 1.5em;
-        }
-        .product-normal-price {
-            text-decoration: line-through;
-            color: #333;
-        }
-        .rating {
-            color: gold;
-            font-size: 1.2em;
-        }
-        .quantity-select, .delivery-options {
-            margin-top: 10px;
-        }
-        .delivery-options label {
-            display: block;
-            margin-top: 5px;
-        }
-        .additional-images {
+        .thumbnails {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 10px;
             margin-top: 20px;
         }
-        .additional-images img {
-            max-width: 110px; /* Ajustado para ser 50px más grande */
-            height: auto;
+        .thumbnails img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin recortarse */
+            border: 2px solid transparent;
+            border-radius: 4px;
             cursor: pointer;
         }
-        .add-to-cart {
+        .thumbnails img:hover, .thumbnails img.active {
+            border-color: #007bff;
+        }
+        .product-info {
+            flex: 1.5;
+            padding: 20px;
+        }
+        .product-info .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .product-info .header h1 {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin: 0;
+        }
+        .product-info .header .badge {
+            background-color: #ffd700;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        .product-info .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .product-info .rating span {
+            color: #f39c12;
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .product-info .rating p {
+            margin: 0;
+            color: #757575;
+        }
+        .product-info .price {
+            margin-bottom: 20px;
+        }
+        .product-info .price .current-price {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #e53935;
+        }
+        .product-info .price .old-price {
+            font-size: 1.2em;
+            color: #757575;
+            text-decoration: line-through;
+        }
+        .product-info .price .installments {
+            font-size: 0.9em;
+            color: #757575;
+        }
+        .product-info .stock {
+            margin-bottom: 20px;
+        }
+        .product-info .stock p {
+            margin: 0;
+            font-size: 1em;
+            color: #4caf50;
+        }
+        .product-info .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .product-info .actions .quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .product-info .actions .quantity select {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .product-info .actions .buy-button {
             background-color: #4e280c;
             color: white;
-            padding: 10px 20px;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 4px;
             text-decoration: none;
-            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        .product-info .actions .buy-button:hover {
+            background-color: #0056b3;
+        }
+        .product-info .seller-info {
             margin-top: 20px;
-            display: inline-block;
+            font-size: 0.9em;
+            color: #757575;
         }
-        html, body {
-            overflow-x: hidden;
-        }
-        nav {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            background-color: #4e280c;
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%;
-        }
-        nav a {
-            color: #fffbfb;
-            padding: 10px 15px;
+        .product-info .seller-info a {
+            color: #007bff;
             text-decoration: none;
-            transition: background-color 0.3s;
         }
-        nav a:hover {
-            background-color: #3f2009;
+        .product-info .seller-info a:hover {
+            text-decoration: underline;
         }
-        .logo {
-            max-width: 80px;
-            height: auto;
+        .color-option {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
         }
-        .search-bar {
+        .color-option span {
+            font-size: 1.1em;
+            margin-right: 10px;
+        }
+        .color-option img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 20px; /* Espacio de 20px entre el cuadro y el pie de página */
+        }
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+        .footer-section h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 5px;
+        }
+        .footer-section ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: #dddddd;
+        }
+        .footer-social {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            align-items: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
         }
-        .search-bar input {
-            width: 300px;
-            padding: 10px;
-            border: 2px solid #ccc;
-            border-radius: 25px;
-            outline: none;
-            transition: all 0.3s;
+        .footer-social a {
+            margin: 0 10px;
         }
-        .search-bar input:focus {
-            border-color: #6d564a;
+        .footer-social img {
+            width: 30px;
         }
+        html {
+            scroll-behavior: smooth; /* Transición suave al hacer scroll */
+        }
+        footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd; /* Línea decorativa */
+    padding-bottom: 5px;
+    text-align: center; /* Alineación centrada */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #dddddd;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; /* Opcional: añade color de fondo */
+    padding: 10px 0; /* Añade un poco de espacio alrededor del logo */
+}
+
+.footer-social a {
+    margin: 0 10px;
+}
+
+.footer-social img {
+    width: 30px;
+}
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const mainImage = document.querySelector('.product-image img');
-            const thumbnails = document.querySelectorAll('.additional-images img');
+            const mainImage = document.querySelector('.product-images img');
+            const thumbnails = document.querySelectorAll('.thumbnails img');
             
             thumbnails.forEach(thumbnail => {
                 thumbnail.addEventListener('click', function() {
                     mainImage.src = thumbnail.src;
+                    thumbnails.forEach(img => img.classList.remove('active'));
+                    thumbnail.classList.add('active');
                 });
             });
         });
@@ -160,36 +332,90 @@
     </nav>
     <div class="container">
         <div class="product-details">
-            <div class="product-image">
-                <img src="produ2.png" alt="Escritorio Ejecutivo Red Top Wonderful">
-                <div class="additional-images">
-                    <img src="produmas.png" alt="Escritorio Vista Lateral">
-                    <img src="produ2.png" alt="Escritorio Vista Frontal">
-                    <img src="1.png" alt="Escritorio Detalle">
+            <div class="product-images">
+                <img src="produ2.png" alt="Imagen principal">
+                <div class="thumbnails">
+                    <img src="produmas.png" alt="Vista lateral" class="active">
+                    <img src="produ2.png" alt="Vista frontal">
+                    <img src="1.png" alt="Detalle del producto">
                 </div>
             </div>
             <div class="product-info">
-                <h2>Escritorio Ejecutivo Red Top Wonderful / Blanco / MDF laminado</h2>
-                <p class="product-price">$3,299.00</p>
-                <p class="product-normal-price">Normal: $4,100.00</p>
-                <p class="rating">★ 4.8 (120 opiniones)</p>
-                <div class="quantity-select">
-                    <label for="quantity">Cantidad:</label>
-                    <select id="quantity" name="quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
+                <div class="header">
+                    <h1>Cómoda Cajonera Mueblana, 8 Cajones, Madera, 80x23.5x101cm Color Marrón</h1>
+                    <span class="badge">Más vendido</span>
                 </div>
-                <div class="delivery-options">
-                    <label>Opciones de entrega:</label>
-                    <label><input type="radio" name="delivery" value="express"> Entrega Express</label>
-                    <label><input type="radio" name="delivery" value="home"> Entrega a Domicilio</label>
-                    <label><input type="radio" name="delivery" value="store"> Recoger en Tienda</label>
+                <div class="rating">
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>☆</span>
+                    <p>(23)</p>
                 </div>
-                <a href="#" class="add-to-cart">Agregar al Carrito</a>
+                <div class="price">
+                    <p class="current-price">$1,574.37</p>
+                    <p class="old-price">$2,499.00</p>
+                    <p class="installments">en 24 meses de $95.14, IVA incluido</p>
+                </div>
+                <div class="stock">
+                    <p>Envío gratis a todo el país</p>
+                    <p>Stock disponible (+50 disponibles)</p>
+                </div>
+                <div class="actions">
+                    <div class="quantity">
+                        <label for="quantity">Cantidad:</label>
+                        <select id="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <a href="#" class="buy-button">Comprar ahora</a>
+                </div>
+                <div class="seller-info">
+                    <p>Vendido por <a href="#">Mueblana</a> | +5mil ventas</p>
+                    <p>Compra Protegida, recibe el producto que esperabas o te devolvemos tu dinero.</p>
+                </div>
+                <div class="color-option">
+                    <span>Color:</span>
+                    <img src="produ2.png" alt="Color Blanco">
+                </div>
             </div>
         </div>
     </div>
+    <footer id="contacto">
+        <div class="footer-section">
+            <h3>ATENCIÓN A CLIENTES</h3>
+            <ul>
+                <li><a href="#estatus-orden">Conoce el estatus de tu orden</a></li>
+                <li><a href="#garantias">Garantías</a></li>
+                <li><a href="tel:5529209373">5529209373</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>TÉRMINOS Y CONDICIONES</h3>
+            <ul>
+                <li><a href="#terminos">Términos y Condiciones</a></li>
+                <li><a href="#aviso-privacidad">Aviso de Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>EXPERIENCIA MOBLUM</h3>
+            <ul>
+                <li><a href="#compra-segura">Compra Segura</a></li>
+                <li><a href="#comunicacion">Comunicación y medios</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>PROMOCIONES</h3>
+            <ul>
+                <li><a href="#buen-fin">Buen fin</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <a href="https://wa.me/5529209373"><img src="wasa.png" alt="WhatsApp"></a>
+        </div>
+    </footer>
 </body>
 </html>
