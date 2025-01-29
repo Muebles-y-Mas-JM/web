@@ -46,24 +46,31 @@ nav {
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
+    flex-wrap: wrap; /* Para que los elementos se muevan a la siguiente línea en pantallas pequeñas */
 }
+
 nav a {
     color: #fffbfb;
     padding: 10px 15px;
     text-decoration: none;
     transition: background-color 0.3s;
 }
+
 nav a:hover {
     background-color: #3f2009;
 }
+
 .logo {
     max-width: 80px;
     height: auto;
+    margin-right: auto; /* Empuja los enlaces a la derecha */
 }
+
 .search-bar {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    width: 100%;
 }
 .search-bar input {
     width: 300px;
@@ -150,14 +157,6 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-    width: 305%;
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    clear: both; /* Asegura que el footer no quede superpuesto */
-    height: auto; /* Permite que el footer ajuste su altura */
-    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
 }
 
 .footer-section {
@@ -165,41 +164,78 @@ footer {
     margin: 10px;
     min-width: 200px;
 }
+
 .footer-section h3 {
     color: #ffffff;
     margin-bottom: 10px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #ddd; /* Línea decorativa */
     padding-bottom: 5px;
-    text-align: center;
+    text-align: center; /* Alineación centrada */
 }
+
 .footer-section ul {
     list-style: none;
     padding: 0;
 }
+
 .footer-section ul li {
     margin-bottom: 5px;
 }
+
 .footer-section ul li a {
     color: #ffffff;
     text-decoration: none;
     transition: color 0.3s;
 }
+
 .footer-section ul li a:hover {
     color: #dddddd;
 }
+
 .footer-social {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Asegura que la sección social ocupe todo el ancho */
-    background-color: #333;
-    padding: 10px 0;
+    width: 100%;
+    background-color: #333; /* Opcional: añade color de fondo */
+    padding: 10px 0; /* Añade un poco de espacio alrededor del logo */
 }
+
 .footer-social a {
     margin: 0 10px;
 }
+
 .footer-social img {
     width: 30px;
+}
+
+/* Media queries para ajustar el diseño en pantallas más pequeñas */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-section {
+        min-width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
 }
 .hero-section {
     background-image: url("mu.png");
