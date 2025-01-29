@@ -8,23 +8,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap" rel="stylesheet">
-<style>
+    <style>
+       html {
+    scroll-behavior: smooth; /* Transición suave al hacer scroll */
+}
 html, body {
     overflow-x: hidden;
 }
-
 body {
     font-family: 'Teko', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #e9e9e9;
+    
+}
+body, html {
+    min-height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+.container {
+    padding-bottom: 100px; /* Espacio extra para el footer */
+}
 header {
     background-color: #333;
     padding: 1px 0;
 }
-
 nav {
     display: flex;
     justify-content: flex-start;
@@ -34,29 +46,24 @@ nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
-
 nav a {
     color: #fffbfb;
     padding: 10px 15px;
     text-decoration: none;
     transition: background-color 0.3s;
 }
-
 nav a:hover {
     background-color: #3f2009;
 }
-
 .logo {
     max-width: 80px;
     height: auto;
 }
-
 .search-bar {
     display: flex;
     justify-content: center;
     margin: 20px 0;
 }
-
 .search-bar input {
     width: 300px;
     padding: 10px;
@@ -65,40 +72,34 @@ nav a:hover {
     outline: none;
     transition: all 0.3s;
 }
-
 .search-bar input:focus {
     border-color: #6d564a;
 }
-
 .container {
     padding: 20px;
 }
-
 .section {
     margin: 20px 0;
 }
-
 .section h2 {
     background-color: #4e280c;
     color: white;
     padding: 10px;
     text-align: center;
 }
-
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-items: center;
 }
-
 .product {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
-    width: 85%; /* Asegura que todos los productos tengan el mismo ancho */
-    max-width: 360px; /* Ajusta el ancho máximo del contenedor del producto */
+    width: 120%; /* Asegura que todos los productos tengan el mismo ancho */
+    max-width: 420px; /* Ajusta el ancho máximo del contenedor del producto */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -106,26 +107,21 @@ nav a:hover {
     text-align: center;
     overflow: hidden;
 }
-
 .product img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
-
 .product p {
     margin: 5px 0;
 }
-
 .product-price {
     color: red;
     font-weight: bold;
 }
-
 .product-normal-price {
     text-decoration: line-through;
 }
-
 footer {
     background-color: #333;
     color: white;
@@ -134,6 +130,14 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
+    width: 305%;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    clear: both; /* Asegura que el footer no quede superpuesto */
+    height: auto; /* Permite que el footer ajuste su altura */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
 }
 
 .footer-section {
@@ -141,7 +145,6 @@ footer {
     margin: 10px;
     min-width: 200px;
 }
-
 .footer-section h3 {
     color: #ffffff;
     margin-bottom: 10px;
@@ -149,45 +152,35 @@ footer {
     padding-bottom: 5px;
     text-align: center;
 }
-
 .footer-section ul {
     list-style: none;
     padding: 0;
 }
-
 .footer-section ul li {
     margin-bottom: 5px;
 }
-
 .footer-section ul li a {
     color: #ffffff;
     text-decoration: none;
     transition: color 0.3s;
 }
-
 .footer-section ul li a:hover {
     color: #dddddd;
 }
-
 .footer-social {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    width: 100%; /* Asegura que la sección social ocupe todo el ancho */
     background-color: #333;
     padding: 10px 0;
 }
-
 .footer-social a {
     margin: 0 10px;
 }
-
 .footer-social img {
     width: 30px;
 }
-
 .hero-section {
     background-image: url("mu.png");
     background-size: cover;
@@ -198,18 +191,21 @@ footer {
     color: white;
     font-size: 2em;
 }
-
 .hero-text-box {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 5px;
     text-align: center;
 }
-
 .hero-text-box h1 {
     color: #ffffff;
     font-family: 'Teko', sans-serif;
     font-size: 36px;
+}
+footer > div {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
 }
 </style>
 </head>
@@ -317,6 +313,39 @@ footer {
                     <p>Precio Especial: $2,899.00</p>
                     <p class="product-price">Precio al Pagar: $2,464.15</p>
                 </div>
+                <footer id="contacto"> <!-- Identificador que permite el desplazamiento -->
+                    <div class="footer-section">
+                        <h3>ATENCIÓN A CLIENTES</h3>
+                        <ul>
+                            <li><a href="#estatus-orden">Conoce el estatus de tu orden</a></li>
+                            <li><a href="#garantias">Garantías</a></li>
+                            <li><a href="tel:5529209373">5529209373</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>TÉRMINOS Y CONDICIONES</h3>
+                        <ul>
+                            <li><a href="#terminos">Términos y Condiciones</a></li>
+                            <li><a href="#aviso-privacidad">Aviso de Privacidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>EXPERIENCIA MOBLUM</h3>
+                        <ul>
+                            <li><a href="#compra-segura">Compra Segura</a></li>
+                            <li><a href="#comunicacion">Comunicación y medios</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>PROMOCIONES</h3>
+                        <ul>
+                            <li><a href="#buen-fin">Buen fin</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://wa.me/5529209373"><img src="wasa.png" alt="WhatsApp"></a>
+                    </div>
+                </footer>
             </div>
         </div>
     </div>
