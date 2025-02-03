@@ -342,6 +342,7 @@ nav a:hover {
             <input type="text" placeholder="Busca aquí por toda la tienda...">
         </div>
     </nav>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -475,6 +476,60 @@ nav a:hover {
                 });
             });
         });
+        document.addEventListener('DOMContentLoaded', function() {
+    const buyButton = document.getElementById('buy-button');
+    const quantitySelect = document.getElementById('quantity');
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('producto');
+
+    const productsData = {
+        // Aquí va tu data de productos como la que has mostrado antes
+    };
+
+    if (productsData[product]) {
+        const productData = productsData[product];
+
+        // Actualiza el nombre del producto en el botón de compra
+        buyButton.setAttribute('data-product-name', productData.name);
+
+        document.querySelector('.product-info .header h1').textContent = productData.description;
+        document.querySelector('.product-images img').src = productData.mainImage;
+
+        const thumbnailsContainer = document.querySelector('.thumbnails');
+        thumbnailsContainer.innerHTML = '';
+        productData.thumbnails.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            thumbnailsContainer.appendChild(img);
+        });
+
+        document.querySelector('.current-price').textContent = productData.price;
+        document.querySelector('.old-price').textContent = productData.oldPrice;
+    }
+
+    buyButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const productName = buyButton.getAttribute('data-product-name');
+        const quantity = quantitySelect.value;
+
+        const message = `Hola, me gustaría comprar el siguiente producto:\n\nProducto: ${productName}\nCantidad: ${quantity}`;
+        const whatsappUrl = `https://wa.me/5529209373?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, '_blank');
+    });
+
+    const thumbnails = document.querySelectorAll('.thumbnails img');
+    const mainImage = document.querySelector('.product-images img');
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function() {
+            mainImage.src = thumbnail.src;
+            thumbnails.forEach(img => img.classList.remove('active'));
+            thumbnail.classList.add('active');
+        });
+    });
+});
+
     </script>
     <div class="container">
         <div class="product-details">
@@ -516,7 +571,8 @@ nav a:hover {
                             <option value="3">3</option>
                         </select>
                     </div>
-                    <a href="#" class="buy-button">Comprar ahora</a>
+                    <a href="#" id="buy-button" class="buy-button" data-product-name="Mueble para Pantalla/Personalizable">Comprar ahora</a>
+
                 </div>
                 <div class="seller-info">
                     <p>Vendido por <a href="#">Muebles y Mas JM</a> | 100 ventas</p>
