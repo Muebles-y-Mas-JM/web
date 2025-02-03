@@ -503,7 +503,7 @@ nav a:hover {
     if (productsData[product]) {
         const productData = productsData[product];
 
-        // Actualiza la descripción del producto en el botón de compra
+        // Actualiza el nombre del producto en el botón de compra
         buyButton.setAttribute('data-product-description', productData.description);
 
         document.querySelector('.product-info .header h1').textContent = productData.description;
@@ -544,7 +544,6 @@ nav a:hover {
         });
     });
 });
-
 
     </script>
     <div class="container">
