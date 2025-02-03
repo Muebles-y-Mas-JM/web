@@ -490,22 +490,20 @@ nav a:hover {
             });
         });
         document.addEventListener('DOMContentLoaded', function() {
-    const buyButton = document.getElementById('buy-button');
-    const quantitySelect = document.getElementById('quantity');
-    const colorSelect = document.getElementById('color-option');
     const urlParams = new URLSearchParams(window.location.search);
     const product = urlParams.get('producto');
 
     const productsData = {
-        // Aquí va tu data de productos como la que has mostrado antes
+        A: { name: "Producto A", mainImage: "muebletv1.png", thumbnails: ["muebletv1.png", "muebletv3.png"], description: "Mueble para Pantalla/Personalizable", price: "$1,574.37", oldPrice: "$2,499.00" },
+        B: { name: "Producto B", mainImage: "produmas.png", thumbnails: ["op.png", "op1.png", "op2.png"], description: "Soporte para Espada u Objeto/Personalizable", price: "$2,800.00", oldPrice: "$4,000.00" },
+        C: { name: "Producto C", mainImage: "respisa1.png", thumbnails: ["respisa1.png", "respisa2.png"], description: "Repisa para Libros y Decoraciones/Personalizable", price: "$1,574.37", oldPrice: "$2,499.00" },
+        // Agrega más productos según sea necesario...
     };
 
     if (productsData[product]) {
         const productData = productsData[product];
 
-        // Actualiza el nombre del producto en el botón de compra
-        buyButton.setAttribute('data-product-description', productData.description);
-
+        // Asignación de datos en la página
         document.querySelector('.product-info .header h1').textContent = productData.description;
         document.querySelector('.product-images img').src = productData.mainImage;
 
@@ -514,34 +512,34 @@ nav a:hover {
         productData.thumbnails.forEach(src => {
             const img = document.createElement('img');
             img.src = src;
+            img.addEventListener('click', function() {
+                document.querySelector('.product-images img').src = src;
+                document.querySelectorAll('.thumbnails img').forEach(img => img.classList.remove('active'));
+                img.classList.add('active');
+            });
             thumbnailsContainer.appendChild(img);
         });
 
         document.querySelector('.current-price').textContent = productData.price;
         document.querySelector('.old-price').textContent = productData.oldPrice;
+
+        // Asignar descripción al botón de compra
+        const buyButton = document.getElementById('buy-button');
+        buyButton.setAttribute('data-product-description', productData.description);
     }
 
-    buyButton.addEventListener('click', function(event) {
+    // Evento para el botón de compra
+    document.getElementById('buy-button').addEventListener('click', function(event) {
         event.preventDefault();
 
-        const productDescription = buyButton.getAttribute('data-product-description');
-        const quantity = quantitySelect.value;
-        const color = colorSelect.options[colorSelect.selectedIndex].text;
+        const productDescription = this.getAttribute('data-product-description') || "Producto desconocido";
+        const quantity = document.getElementById('quantity').value;
+        const color = document.getElementById('color-option').options[document.getElementById('color-option').selectedIndex].text;
 
         const message = `Hola, me gustaría comprar el siguiente producto:\n\nProducto: ${productDescription}\nCantidad: ${quantity}\nColor: ${color}`;
-        const whatsappUrl = `https://wa.me/5529209373?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`;
 
         window.open(whatsappUrl, '_blank');
-    });
-
-    const thumbnails = document.querySelectorAll('.thumbnails img');
-    const mainImage = document.querySelector('.product-images img');
-    thumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', function() {
-            mainImage.src = thumbnail.src;
-            thumbnails.forEach(img => img.classList.remove('active'));
-            thumbnail.classList.add('active');
-        });
     });
 });
 
