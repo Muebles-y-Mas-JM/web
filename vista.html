@@ -312,6 +312,19 @@ nav a:hover {
 .footer-social img {
     width: 30px;
 }
+.color-option select {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+.color-option select {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.8em; /* Ajusta el tamaño de la fuente aquí */
+}
+
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -479,6 +492,7 @@ nav a:hover {
         document.addEventListener('DOMContentLoaded', function() {
     const buyButton = document.getElementById('buy-button');
     const quantitySelect = document.getElementById('quantity');
+    const colorSelect = document.getElementById('color-option');
     const urlParams = new URLSearchParams(window.location.search);
     const product = urlParams.get('producto');
 
@@ -512,8 +526,9 @@ nav a:hover {
 
         const productName = buyButton.getAttribute('data-product-name');
         const quantity = quantitySelect.value;
+        const color = colorSelect.options[colorSelect.selectedIndex].text;
 
-        const message = `Hola, me gustaría comprar el siguiente producto:\n\nProducto: ${productName}\nCantidad: ${quantity}`;
+        const message = `Hola, me gustaría comprar el siguiente producto:\n\nProducto: ${productName}\nCantidad: ${quantity}\nColor: ${color}`;
         const whatsappUrl = `https://wa.me/5529209373?text=${encodeURIComponent(message)}`;
 
         window.open(whatsappUrl, '_blank');
@@ -529,6 +544,7 @@ nav a:hover {
         });
     });
 });
+
 
     </script>
     <div class="container">
@@ -557,14 +573,13 @@ nav a:hover {
                 <div class="price">
                     <p class="current-price">$1,574.37</p>
                     <p class="old-price">$2,499.00</p>
-                    <p class="installments">en 24 meses de $95.14, IVA incluido</p>
                 </div>
                 <div class="stock">
                     <p>Stock disponible (disponibles)</p>
                 </div>
                 <div class="actions">
                     <div class="quantity">
-                        <label for="quantity">Cantidad:</label>
+                        <label for="quantity">Cantidad:&nbsp;</label>
                         <select id="quantity">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -576,12 +591,18 @@ nav a:hover {
                 </div>
                 <div class="seller-info">
                     <p>Vendido por <a href="#">Muebles y Mas JM</a> | 100 ventas</p>
-                    <p>Compra Protegida, recibe el producto que esperabas o te devolvemos tu dinero.</p>
+                    <p>Compra Protegida, recibe siempre el producto que esperabas.</p>
                 </div>
                 <div class="color-option">
-                    <span>Color:</span>
-                    <img src="produ2.png" alt="Color Blanco">
-                </div>
+                    <label for="color-option">Color:</label>&nbsp;&nbsp;
+                    <select id="color-option">
+                        <option value="Cafe Obscuro">Cafe Obscuro</option>
+                        <option value="Cafe Claro">Cafe Claro</option>
+                        <option value="Gris Obscuro">Gris Obscuro</option>
+                        <option value="Gris Claro">Gris Claro</option>
+                        <option value="Negro">Negro</option>
+                    </select>
+                </div>                
             </div>
         </div>
     </div>
