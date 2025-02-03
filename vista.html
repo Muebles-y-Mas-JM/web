@@ -503,8 +503,8 @@ nav a:hover {
     if (productsData[product]) {
         const productData = productsData[product];
 
-        // Actualiza el nombre del producto en el botón de compra
-        buyButton.setAttribute('data-product-name', productData.name);
+        // Actualiza la descripción del producto en el botón de compra
+        buyButton.setAttribute('data-product-description', productData.description);
 
         document.querySelector('.product-info .header h1').textContent = productData.description;
         document.querySelector('.product-images img').src = productData.mainImage;
@@ -524,11 +524,11 @@ nav a:hover {
     buyButton.addEventListener('click', function(event) {
         event.preventDefault();
 
-        const productName = buyButton.getAttribute('data-product-name');
+        const productDescription = buyButton.getAttribute('data-product-description');
         const quantity = quantitySelect.value;
         const color = colorSelect.options[colorSelect.selectedIndex].text;
 
-        const message = `Hola, me gustaría comprar el siguiente producto:\n\nProducto: ${productName}\nCantidad: ${quantity}\nColor: ${color}`;
+        const message = `Hola, me gustaría comprar el siguiente producto:\n\nProducto: ${productDescription}\nCantidad: ${quantity}\nColor: ${color}`;
         const whatsappUrl = `https://wa.me/5529209373?text=${encodeURIComponent(message)}`;
 
         window.open(whatsappUrl, '_blank');
@@ -586,7 +586,7 @@ nav a:hover {
                             <option value="3">3</option>
                         </select>
                     </div>
-                    <a href="#" id="buy-button" class="buy-button" >Comprar ahora</a>
+                    <a href="#" id="buy-button" class="buy-button">Comprar ahora</a>
 
                 </div>
                 <div class="seller-info">
