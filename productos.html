@@ -95,7 +95,17 @@ nav a:hover {
     max-width: 120px; /* Ancho ajustado */
 }
 
+@media (max-width: 1024px) {
+    .product-list, .featured-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
+    body {
+  background-image: url('mu2.png');
+  background-size: contain;
+}
     .nav-links {
         display: none;
         flex-direction: column;
@@ -105,12 +115,16 @@ nav a:hover {
         right: 0;
         width: 100%;
     }
-
-    .nav-links a {
-        text-align: center;
-        padding: 15px;
+    .logo img {
+        max-width: 50px;
     }
-
+    .search-bar {
+        flex: 1;
+        margin-left: 10px;
+    }
+    .nav-links {
+        font-size: 4px;
+    }
     .menu-toggle {
         display: block;
     }
@@ -119,6 +133,11 @@ nav a:hover {
         width: 90%;
         max-width: none;
     }
+
+    .product-list, .featured-products {
+        grid-template-columns: 1fr;
+    }
+    
 }
 
 .container {
@@ -406,3 +425,4 @@ footer {
     </footer>
 </body>
 </html>
+
