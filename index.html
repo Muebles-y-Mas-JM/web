@@ -17,6 +17,7 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Teko', Arial, sans-serif;
+
 }
 
 nav {
@@ -46,6 +47,7 @@ nav a:hover {
     gap: 6px; /* Reducir el espacio entre enlaces */
     flex: 1;
     justify-content: center; /* Centrar los encabezados */
+    margin: 0 5px;
 }
 
 .nav-links a {
@@ -100,6 +102,10 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
+    body {
+  background-image: url('mu2.png');
+  background-size: contain;
+}
     .nav-links {
         display: none;
         flex-direction: column;
@@ -109,12 +115,16 @@ nav a:hover {
         right: 0;
         width: 100%;
     }
-
-    .nav-links a {
-        text-align: center;
-        padding: 15px;
+    .logo img {
+        max-width: 50px;
     }
-
+    .search-bar {
+        flex: 1;
+        margin-left: 10px;
+    }
+    .nav-links {
+        font-size: 4px;
+    }
     .menu-toggle {
         display: block;
     }
@@ -127,6 +137,7 @@ nav a:hover {
     .product-list, .featured-products {
         grid-template-columns: 1fr;
     }
+    
 }
 
 html, body {
@@ -254,7 +265,8 @@ footer {
 
 .hero-section {
     background-image: url("mu.png");
-    background-size: cover;
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el contenedor */
     height: 400px; /* Ajusta la altura según necesites */
     display: flex;
     justify-content: center;
@@ -262,7 +274,12 @@ footer {
     color: white;
     font-size: 2em;
 }
-
+@media (max-width: 600px) {
+    .hero-section {
+        height: 300px; /* Ajusta la altura para pantallas pequeñas */
+        font-size: 1.5em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    }
+}
 .hero-text-box {
     background-color: rgba(0, 0, 0, 0.5); /* Recuadro negro borroso */
     padding: 20px;
